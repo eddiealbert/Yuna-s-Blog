@@ -1,0 +1,30 @@
+<section data-ng-controller="ArticlesController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Articles</h1>
+	</div>
+			
+			<a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" >
+				
+					<div class="row">
+				<!--<div class="col-xs-3">-->
+					<div class="row">
+						<div class="col-xs-12">
+				<div class="well">
+					<small>Posted on
+					<span data-ng-bind="article.created | date:'mediumDate'"></span></small>
+					<center><h1  data-ng-bind="article.title"></h1></center>
+					<p ng-bind-html="article.content | unsafe"></p>
+				<!--</div>-->
+			</div>
+		</div>
+	</div>
+		</div>
+			
+			</a>
+		
+		
+	
+	<div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
+		No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+	</div>
+</section>
